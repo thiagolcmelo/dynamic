@@ -13,8 +13,4 @@ def index():
 def lab(device_id=None):
     return render_template("laboratory/lab.html", page="lab")
 
-@laboratory.route('/devices')
-def devices():
-    return render_template("laboratory/devices.html", page="devices")
-
 # @laboratory.route('/device', methods=['GET', 'POST', 'PATCH', 'DELETE']):

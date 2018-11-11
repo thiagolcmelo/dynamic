@@ -1,5 +1,162 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<h3>Laboratory</h3>
+<div class="page-header">
+    <h3>Laboratory <small>Here you can create and test your devices</small></h3>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <label for="device">Device</label>
+        <select id="device" class="form-control">
+            <option value="_Null" selected>New device</option>
+        </select>
+    </div>
+    <div class="col-md-5">
+        <label for="device-name">Name</label>
+        <input type="text" id="device-name" class="form-control" placeholder="Device name" />
+    </div>
+    <div class="col-md-2">
+        <label for="">&nbsp;</label>
+        <button type="button" class="btn btn-danger btn-block">Delete</button>
+    </div>
+    <div class="col-md-2">
+        <label for="">&nbsp;</label>
+        <button type="button" class="btn btn-success btn-block">Save</button>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-2">
+        <label for="alloy">Alloy</label>
+        <select id="alloy" class="form-control">
+            <option value="_Null" selected>Al_{x} Ga_{1-x} As</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="monolayes">Monolayers</label>
+        <input type="text" id="monolayes" class="form-control" placeholder="Monolayers" />
+    </div>
+    <div class="col-md-2">
+        <label for="x">{x} fraction</label>
+        <input type="text" id="x" class="form-control" placeholder="{x} fraction" />
+    </div>
+    <div class="col-md-2">
+        <label for="r">R (Segregation coef.)</label>
+        <input type="text" id="r" class="form-control" placeholder="R (Segregation coef.)" />
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label for="temperature">Temperature</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="temperature" placeholder="Temperature">
+                <div class="input-group-addon">°C</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <label for="t">&nbsp;</label>
+        <button type="button" class="btn btn-primary btn-block">Add</button>
+    </div>
+</div>
+
+<hr />
+
+<hr />
+
+<div class="row">
+    <div class="col-md-2">
+        <label for="remove-monolayes">Remove monolayers</label>
+        <input type="text" id="remove-monolayes" class="form-control" placeholder="Remove monolayers" />
+    </div>
+    <div class="col-md-2">
+        <label for="">&nbsp;</label>
+        <button type="button" class="btn btn-danger btn-block">Remove</button>
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+        <label for="">&nbsp;</label>
+        <button type="button" class="btn btn-default btn-block">Check eigenenergies</button>
+    </div>
+    <div class="col-md-2">
+        <label for="">&nbsp;</label>
+        <button type="button" class="btn btn-success btn-block">Save</button>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="static-bias">Static bias</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="static-bias" placeholder="Static bias">
+                <div class="input-group-addon">KV / cm</div>
+            </div>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Active region only
+            </label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <label for="absorption">Absorption type</label>
+        <select class="form-control" id="absorption">
+            <option value="0" selected>Logistic</option>
+            <option value="1">Complex Linear</option>
+            <option value="2">Complex Quadratic</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="absorption-param-1">Param 1</label>
+        <input id="absorption-param-1" type="text" class="form-control" placeholder="Param 1" />
+    </div>
+    <div class="col-md-2">
+        <label for="absorption-param-2">Param 2</label>
+        <input id="absorption-param-2" type="text" class="form-control" placeholder="Param 2" />
+    </div>
+    <div class="col-md-3">
+        <label for="">&nbsp;</label>
+        <button type="button" class="btn btn-info btn-block">Apply</button>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="min-energy">Min energy</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="min-energy" placeholder="Min energy">
+                <div class="input-group-addon">meV</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="max-energy">Max energy</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="max-energy" placeholder="Max energy">
+                <div class="input-group-addon">meV</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="dynamic-field">Dynamic field</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="dynamic-field" placeholder="Dynamic field">
+                <div class="input-group-addon">KV / cm</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="">&nbsp;</label>
+        <button type="submit" class="btn btn-danger btn-block">Photocurrent</button>
+    </div>
+</div>
 {% endblock %}
