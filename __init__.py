@@ -22,5 +22,8 @@ def create_app(config_name):
     
     from .laboratory import laboratory as laboratory_blueprint
     app.register_blueprint(laboratory_blueprint)
+
+    from .warehouse import warehouse as warehouse_blueprint
+    app.register_blueprint(warehouse_blueprint)
     
     return app

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <h3>Element types</h3>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <ul if="element-types"></ul>
+    </div>
+    <div class="col-md-6">
+        <div id="create-new-element-type-alert" class="alert alert-warning alert-dismissible" role="alert" style="display: none">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Warning!</strong> <span id="create-new-element-type-alert-message"></span>
+        </div>
+        <form>
+            <label for="new-element-type">New element type</label>
+            <input type="text" id="new-element-type" class="form-control" placeholder="New element type" required />
+            <br />
+            <button id="create-new-element-type" type="button" class="btn btn-success btn-block">Create</button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var clearIntervalRef = setInterval(function () {
+        if (typeof($) === "function") {
+            clearInterval(clearIntervalRef);
+
+            var element_types_list = function () {
+
+            };
+            
+            $(document).ready(function () {
+                $('#create-new-element-type').on('mousedown', function (evt) {
+                    if ($('#new-element-type').val()) {
+                        $.ajax({
+                            url: "{{ url_for('warehouse.create_new_element_type') }}",
+                            data: {
+                                "elemet_type": $('#new-element-type').val()
+                            },
+                            contentType: 'application/json',
+                            method: 'post',
+                            success: function (data) {
+                                console.log(data);
+                            }
+                        });
+                    } else {
+                        $('#create-new-element-type-alert').show();
+                        $('#create-new-element-type-alert-message').text("Missing new element type!")
+                    }
+                });
+            });
+        }
+    }, 500);
+</script>
+
+{% endblock %}
